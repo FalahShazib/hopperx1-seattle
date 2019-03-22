@@ -6,10 +6,6 @@ public class RabbitBehaviour : MonoBehaviour
 {
 	public GameObject[] checkpoints;
 
-	// This is a way to reference the object we want to move at a later step
-	// Uncomment at the relevant step
-	//public GameObject itemToMove;
-
 	private int currCheckpointIndex = 0;
 	private GameObject currCheckpoint;
 	private Animator anim;
@@ -17,9 +13,11 @@ public class RabbitBehaviour : MonoBehaviour
 	private Collider mostRecentTrigger;
 	private bool travelling = true;
 
+	// ////////////////////////////////////////////////////////////////////////////////
 	// This is an added check to allow us to choose when to jump into the hole
 	// Uncomment at the relevant step
-	//private bool holeClear = false;
+	//private bool holeClear;
+	//private GameObject itemToMove;
 
 
     // Start is called before the first frame update and is used for initialization
@@ -30,6 +28,7 @@ public class RabbitBehaviour : MonoBehaviour
 		currCheckpoint = checkpoints[currCheckpointIndex];
 		transform.LookAt(currCheckpoint.transform);
 
+		// /////////////////////////////////////////////////////////////////////////
 		// This statement sets the hopping parameter to true triggering the hops
 		// Uncomment it at the relevant step
 		//anim.SetBool("hopping", true);
@@ -40,9 +39,11 @@ public class RabbitBehaviour : MonoBehaviour
     {
 		SetCheckpoint();
 
+		// ////////////////////////////////////////////////////////////////////////
 		// This is for checking user Input
 		// Uncomment at a later step
 		//CheckForClick();
+
 		// angles rabbit towards checkpoint
 		if (travelling)
 		{
@@ -62,9 +63,6 @@ public class RabbitBehaviour : MonoBehaviour
 				&& currCheckpoint.gameObject.name != "rock")
 			{
 				currCheckpointIndex++;
-				Debug.Log(currCheckpointIndex);
-				Debug.Log(dist);
-				Debug.Log(currCheckpoint.gameObject.name);
 			}
 			currCheckpoint = checkpoints[currCheckpointIndex];
 		}
@@ -73,9 +71,11 @@ public class RabbitBehaviour : MonoBehaviour
 			anim.SetBool("hopping", false);
 			travelling = false;
 
-			// Will need to comment this out or delete it when implementing hole checking
+			// ////////////////////////////////////////////////////////////////////////////
+			// Comment this out or delete it when implementing hole checking
 			anim.SetBool("Jump", true);
 
+			// ////////////////////////////////////////////////////////////////////////////
 			// The following code checks if the hole is clear before jumping
 			// Uncomment at the relevant step
 			//if (holeClear)
@@ -102,6 +102,14 @@ public class RabbitBehaviour : MonoBehaviour
 			// to avoid getting stuck in a loop
 			mostRecentTrigger = other;
 		}
+		if (other.gameObject.name == "coverbush")
+		{
+			// //////////////////////////////////////////////////////////
+			// This code detects the cover bush
+			// Uncomment at the relevant step
+			//holeClear = false;
+			//itemToMove = other.gameObject;
+		}
     }
 
 	private void RenableHopping()
@@ -111,10 +119,14 @@ public class RabbitBehaviour : MonoBehaviour
 		anim.SetBool("hopping", true);
 	}
 
+	// This function checks for clicking
 	private void CheckForClick()
 	{
 		if (Input.GetMouseButtonDown(0) && !travelling)
 		{
+			// /////////////////////////////////////////////////////////////////
+			// Causes our bush to disappear and allow rabbit to jump
+			// Uncomment at the relevant step
 			//itemToMove.SetActive(false);
 			//holeClear = true;
 		}

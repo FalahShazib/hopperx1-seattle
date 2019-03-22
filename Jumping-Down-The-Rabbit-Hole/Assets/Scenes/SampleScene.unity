@@ -9055,7 +9055,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100006, guid: 9e7f965ee2860304e9da4137ebe3e0aa, type: 3}
       propertyPath: m_Name
-      value: bush (4)
+      value: coverbush
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9e7f965ee2860304e9da4137ebe3e0aa, type: 3}
       propertyPath: m_IsActive
@@ -9129,6 +9129,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2036343915}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2036343917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100006, guid: 9e7f965ee2860304e9da4137ebe3e0aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 2036343915}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &2036343918
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036343917}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: -1.5}
 --- !u!1001 &2060021436
 PrefabInstance:
   m_ObjectHideFlags: 0
